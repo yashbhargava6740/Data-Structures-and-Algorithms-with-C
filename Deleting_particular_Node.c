@@ -4,64 +4,58 @@
 struct Node 
 {
     int data;
-    struct Node *previous;
     struct Node *next;
 };
 
-
 void delNode(struct Node *head, int index) {
-    struct Node *ptr = head;
+    struct Node *ptr = head, *p;
+    p = head -> next;
     while(--index) {
         ptr = ptr -> next;
+        p = p -> next;
     }
-    ((ptr -> next) -> next) -> previous = ptr;
-    ptr -> next = (ptr -> next) -> next;
+    ptr -> next = p -> next;
+    free(p);
 }
 
 void getArr(struct Node *head) {
+    struct Node *ptr = head;
+    /*while(ptr -> next != head) {
+        printf("%d ", ptr -> data);
+        ptr = ptr -> next;
+    }
+    printf("%d", ptr -> data);*/
+
     do {
-        printf("%d ", head -> data);
-        head = head -> next;
-    } while(head -> next != NULL);
-    printf("%d", head -> data);
-    printf("\n");
-    
-    do {
-        printf("%d ", head -> data);
-        head = head -> previous;
-    } while(head != NULL);
+        printf("%d ", ptr -> data);
+        ptr = ptr -> next;
+    }while(ptr != head);
 }
 
-
-
 void main() {
-    struct Node *head, *second, *third, *fourth;
+    struct Node *head, *second, *third;
     head = (struct Node *)malloc(sizeof(struct Node));
     second = (struct Node *)malloc(sizeof(struct Node));
     third = (struct Node *)malloc(sizeof(struct Node));
-    fourth = (struct Node *)malloc(sizeof(struct Node));
 
-    head -> previous = NULL;
-    head -> next = second;
-    head -> data = 10;
+    (*head).data = 10;
+    (*head).next = second;
 
-    second -> previous = head;
-    second -> next = third;
     second -> data = 20;
+    second -> next = third;
 
-    third -> previous = second;
-    third -> next = fourth;
     third -> data = 30;
-
-    fourth -> previous = third;
-    fourth -> next = NULL;
-    fourth -> data = 40;
-    printf("Before deleting Node:- ");
+    third -> next = head;
+    
+    printf("Before Deleting Node:- ");
     getArr(head);
     printf("\n");
-    delNode(head, 2);
-    printf("After deleting Node:- ");
-    getArr(head);
-    
 
+    delNode(head, 2);
+    
+    printf("After Deleting First Node:- ");
+    getArr(head);
+    free(head);
+    free(second);
+    free(third);
 }
