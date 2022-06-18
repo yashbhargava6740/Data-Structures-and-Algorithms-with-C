@@ -9,16 +9,14 @@ struct Node
 };
 
 
-void insertNode(struct Node *head, int value) {
-    struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
-    ptr -> data = value;
-    while(head -> next != NULL) {
-        head = head -> next;
+void delNode(struct Node *head) {
+    struct Node *ptr = head -> next, *p = head;
+    while(ptr -> next != NULL) {
+        ptr = ptr -> next;
+        p = p -> next;
     }
-
-    head -> next = ptr;
-    ptr -> previous = head;
-    ptr -> next = NULL;
+    p -> next = NULL;
+    free(ptr);
 }
 
 void getArr(struct Node *head) {
@@ -59,11 +57,11 @@ void main() {
     fourth -> previous = third;
     fourth -> next = NULL;
     fourth -> data = 40;
-    printf("Before Adding Node:- ");
+    printf("Before Deleting Node:- ");
     getArr(head);
     printf("\n");
-    insertNode(head, 12);
-    printf("After Adding Node:- ");
+    delNode(head);
+    printf("After Deleting Node:- ");
     getArr(head);
     
 
