@@ -49,7 +49,7 @@ void main() {
             }
         }
     }
-    if(st -> top == -1) 
+    if(st -> top == -1 && out != '0') 
         printf("Valid Parenthesis!\n");
     
     else 
