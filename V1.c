@@ -23,7 +23,7 @@ char pop(struct stack *ptr) {
         //printf("Underflow!\n");
         return '0';
     }
-    return ptr -> array[--(ptr -> top)];
+    return ptr -> array[(ptr -> top)--];
 }
 
 void main() {
