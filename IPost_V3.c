@@ -1,5 +1,5 @@
 //Added Support for ^ operator
-
+// ^ Have right to left associativity while other like +,-,*,/ have left to right associativity
 #include <stdio.h>
 #include <stdlib.h>
 
