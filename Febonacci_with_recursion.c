@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-void febo(int a, int b, int c, int d) {
-    if(!(d == 0)) {
-        printf("%d ", c);
-        febo(b, c, b+c, d-1);    
+void febo(int first, int second, int third, int terms) {
+    if(!(terms == 0)) {
+        printf("%d ", third);
+        febo(second, third, second+third, terms-1);    
     }
     
 }
