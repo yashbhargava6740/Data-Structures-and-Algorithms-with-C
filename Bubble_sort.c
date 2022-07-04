@@ -39,4 +39,5 @@ void main() {
     bubbleSort(arr, n);
     printf("After Sorting:- ");
     printArray(arr,n);
+    free(arr);
 }
