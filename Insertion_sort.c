@@ -35,4 +35,5 @@ void main() {
     insertionSort(arr,n);
     printf("After Sorting array:- ");
     printArray(arr,n);    
+    free(arr);
 }
