@@ -37,4 +37,5 @@ void main() {
     selectionSort(arr,n);
     printf("After Sorting array:- ");
     printArray(arr,n);    
+    free(arr);
 }
