@@ -46,11 +46,14 @@ void enqueue(node **front, node **rear, int val) {
 
 int dequeue(node **front) {
     int val = -1;
+    node *ptr;
     if(isEmpty(*front))
         printf("Queue is empty!\n");
     else {
         val = (*front) -> data;
+        ptr = *front;
         *front = (*front) -> next;
+        free(ptr);
     }
     return val;
 }
