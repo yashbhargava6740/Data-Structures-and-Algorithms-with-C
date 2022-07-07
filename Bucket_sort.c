@@ -1,3 +1,6 @@
+// Only for numbers like 0.1 0.2......not for like 1.1 1.2...
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
