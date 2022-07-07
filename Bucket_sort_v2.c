@@ -1,3 +1,4 @@
+// For floating numbers between 0 and 10
 #include <stdio.h>
 #include <stdlib.h>
 
